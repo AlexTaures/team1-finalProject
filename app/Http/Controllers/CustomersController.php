@@ -11,19 +11,23 @@ class CustomersController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *  @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        $object = Customers::all();
-        return $object;
+       $customers = Customers::all();
+       return $customers;
     }
 
     /**
      * Show the form for creating a new resource.
+     * * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function create(): Response
+    public function create()
     {
-        
+        //
     }
 
     /**
@@ -56,7 +60,7 @@ class CustomersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): Response
+    public function show(string $id)
     {
         //
     }
@@ -64,7 +68,7 @@ class CustomersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): Response
+    public function edit(string $id)
     {
         //
     }
