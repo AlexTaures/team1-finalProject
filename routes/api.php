@@ -30,3 +30,8 @@ Route::put('/customers/{id}', [CustomersController::class, 'update']);
 Route::get('/sales', [ControllerSale::class, 'index']);
 Route::post('/sales', [ControllerSale::class, 'store']);
 Route::put('/sales/{id}', [ControllerSale::class, 'update']);
+
+//Brand Routes
+Route::get('/brand', [brandController::class, 'index']);
+Route::post('/brand', [brandController::class, 'store']);
+Route::put('/brand/{id}', [brandController::class, 'update']);
