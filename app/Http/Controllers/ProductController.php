@@ -2,28 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\product;
-use App\Models\Product as ModelsProduct;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Models\Product;
 
 class productController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return \Illuminate\Http\Response
      */
-    
     public function index()
     {
-        $product = Product::all();
-        return $product;
+        $products = Product::all();
+        return $products;
     }
 
     /**
      * Show the form for creating a new resource.
-     * * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -33,65 +30,80 @@ class productController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $product = new Product;
 
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->amount = $request->amount;
-        $product->price = $request->price;
-        $product->admision_date= $request->admision_date;
-        $product->expiration_date = $request->expiration_date;
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->amount = $request->input('amount');
+        $product->price = $request->input('price');
+        $product->admision_date = $request->input('admision_date');
+        $product->expiration_date = $request->input('expiration_date');
 
+        $product->save();
 
+        return $product;
     }
 
     /**
      * Display the specified resource.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+
+        return $product;
     }
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
     }
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $product = Product::findOrfail($request->id);
+        $product = Product::findOrFail($id);
 
-
-        $product->name = $request->name;
-
-        $product->description = $request->description;
-
-        $product->amount = $request->amount;
-
-        $product->price = $request->price;
-
-        $product->admision_date= $request->admision_date;
-        
-        $product->expiration_date = $request->expiration_date;
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->amount = $request->input('amount');
+        $product->price = $request->input('price');
+        $product->admision_date = $request->input('admision_date');
+        $product->expiration_date = $request->input('expiration_date');
 
         $product->save();
-       	return $product;
+
+        return $product;
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
     }

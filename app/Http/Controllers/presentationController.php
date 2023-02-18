@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\presentation;
+use App\Models\Presentation;
 
-class presentationController extends Controller
+class PresentationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class presentationController extends Controller
      */
     public function index()
     {
-        $presentation = presentation::all();
-        return $presentation;
+        $presentations = Presentation::all();
+        return $presentations;
     }
 
     /**
@@ -32,10 +32,11 @@ class presentationController extends Controller
      */
     public function store(Request $request)
     {
-      $presentation = new presentation; 
+      $presentation = new Presentation; 
 
       $presentation->presentation_type = $request->presentation_type;
 
+      $presentation->save();
     }
 
     /**
@@ -59,11 +60,12 @@ class presentationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $presentation = presentation::findOrFail($request->id);
+        $presentation = Presentation::findOrFail($id);
 
-         $presentation->presentation_type = $request->presentation_type;
+        $presentation->presentation_type = $request->presentation_type;
 
-
+        $presentation->save();
     }
 
 }
+
