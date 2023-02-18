@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('products');
             $table->date('sale_date');
             $table->double('total_sale');
-
             $table->foreignId('customer_id')
             ->nullable()
             ->constrained('customers')
@@ -37,5 +36,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('sales');
+    }
+
+    /**
+     */
+    public function __construct() {
     }
 };
