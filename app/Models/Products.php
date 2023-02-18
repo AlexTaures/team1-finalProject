@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class Products extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -15,5 +15,6 @@ class product extends Model
         'price',
         'admission_date',
         'expiration_date',
+        'brand_id'
     ];
 }

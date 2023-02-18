@@ -5,6 +5,9 @@ use App\Http\Controllers\CustomersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerBrand;
+use App\Http\Controllers\PresentationController;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,18 @@ Route::post('/sales', [ControllerSale::class, 'store']);
 Route::put('/sales/{id}', [ControllerSale::class, 'update']);
 
 //Brand Routes
-Route::get('/brand', [ControllerBrand::class, 'index']);
-Route::post('/brand', [ControllerBrand::class, 'store']);
-Route::put('/brand/{id}', [ControllerBrand::class, 'update']);
+
+Route::get('/brands', [ControllerBrand::class, 'index']);
+Route::post('/brands', [ControllerBrand::class, 'store']);
+Route::put('/brands/{id}', [ControllerBrand::class, 'update']);
+
+//Presentation Routes
+Route::get('/presentations', [PresentationController::class, 'index']);
+Route::post('/presentations', [PresentationController::class, 'store']);
+Route::put('/presentations/{id}', [PresentationController::class, 'update']);
+
+//Product Routes
+Route::get('/products', [ProductController::class, 'index']);
+Route::post('/products', [ProductController::class, 'store']);
+Route::put('/products/{id}', [ProductController::class, 'update']);
+

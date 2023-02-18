@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Brands;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Models\Presentations;
 
-
-class ControllerBrand extends Controller
+class PresentationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,10 @@ class ControllerBrand extends Controller
      */
     public function index()
     {
-
-        $brands = Brands::all();
-        return $brands; 
-
+        $presentations = Presentations::all();
+        return $presentations;
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -33,19 +32,12 @@ class ControllerBrand extends Controller
      */
     public function store(Request $request)
     {
+      $presentation = new Presentations; 
 
-        //
+      $presentation->presentation_type = $request->presentation_type;
 
-        $brand = new Brands;
-        $brand->brand_name = $request->brand_name;
-
-        if($brand!= null){
-            $brand->save();
-            return $brand;
-             }else{
-            return "Error, we can't push the information to the database";
-    }  
-
+      $presentation->save();
+      return $presentation;
     }
 
     /**
@@ -69,20 +61,13 @@ class ControllerBrand extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $presentation = Presentations::findOrFail($id);
 
-        $brand = Brands::findOrFail($request->id);
+        $presentation->presentation_type = $request->presentation_type;
 
-        $brand->brand_name = $request->brand_name;
-        $brand->save();
-        return $brand;
+        $presentation->save();
+        return $presentation;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
 
