@@ -4,7 +4,7 @@ use App\Http\Controllers\ControllerSale;
 use App\Http\Controllers\CustomersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\brandController;
+use App\Http\Controllers\ControllerBrand;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,6 @@ Route::post('/sales', [ControllerSale::class, 'store']);
 Route::put('/sales/{id}', [ControllerSale::class, 'update']);
 
 //Brand Routes
-Route::get('/brand', [brandController::class, 'index']);
-Route::post('/brand', [brandController::class, 'store']);
-Route::put('/brand/{id}', [brandController::class, 'update']);
+Route::get('/brand', [ControllerBrand::class, 'index']);
+Route::post('/brand', [ControllerBrand::class, 'store']);
+Route::put('/brand/{id}', [ControllerBrand::class, 'update']);

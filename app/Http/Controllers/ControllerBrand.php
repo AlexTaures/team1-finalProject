@@ -5,18 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\brand;
-
-
-class brandController extends Controller
+use App\Models\Brands;
+class ControllerBrand extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $brand = Brand::all();
-        return $brand; 
+      $brands = Brands::all();
+      return $brands;
     }
 
     /**
@@ -32,10 +30,7 @@ class brandController extends Controller
      */
     public function store(Request $request)
     {
-        $brand = new brand;
-        $brand->brand_name = $request->brand_name;
-
-        $brand->save();
+        //
     }
 
     /**
@@ -59,12 +54,14 @@ class brandController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $brand = Brand::findOrfail($request->id);
-        $brand->brand_name = $request->brand_name;
-
-        $brand->save();
-
-
+        //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }

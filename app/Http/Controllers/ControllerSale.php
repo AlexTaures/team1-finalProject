@@ -20,7 +20,7 @@ class ControllerSale extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * * @param  \Illuminate\Http\Request  $request
+     * * @param  \Illuminate\Http\Request  $r equest
      * @return \Illuminate\Http\Response
      */
 
