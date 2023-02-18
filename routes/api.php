@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\ControllerSale;
 use App\Http\Controllers\CustomersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/customers', [CustomersController::class, 'index']);
 Route::post('/customers', [CustomersController::class, 'store']);
 Route::put('/customers/{id}', [CustomersController::class, 'update']);
+
+//Sales Routes
+Route::get('/sales', [ControllerSale::class, 'index']);
+Route::post('/sales', [ControllerSale::class, 'store']);
+Route::put('/sales/{id}', [ControllerSale::class, 'update']);

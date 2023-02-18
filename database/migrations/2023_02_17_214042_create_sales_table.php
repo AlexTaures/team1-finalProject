@@ -37,4 +37,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('sales');
     }
+
+    /**
+     */
+    public function __construct() {
+    }
 };
