@@ -15,6 +15,7 @@ class Products extends Model
         'price',
         'admission_date',
         'expiration_date',
-        'brand_id'
+        'brand_id',
+        'presentation_id'
     ];
 }

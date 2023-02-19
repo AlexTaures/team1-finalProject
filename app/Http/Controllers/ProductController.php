@@ -45,6 +45,7 @@ class productController extends Controller
         $product->admission_date = $request->input('admission_date');
         $product->expiration_date = $request->input('expiration_date');
         $product->brand_id = $request->input('brand_id');
+        $product->presentation_id = $request->input('presentation_id');
 
         $product->save();
 
@@ -92,7 +93,7 @@ class productController extends Controller
         $product->price = $request->input('price');
         $product->admission_date = $request->input('admission_date');
         $product->expiration_date = $request->input('expiration_date');
-
+        $product->presentation_id = $request->input('presentation_id');
         $product->save();
 
         return $product;
