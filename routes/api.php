@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerBrand;
 use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\CategoriesController;
 
 
 /*
@@ -49,4 +51,14 @@ Route::put('/presentations/{id}', [PresentationController::class, 'update']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
+
+//Admin Routes
+Route::get('/admins', [AdminsController::class, 'index']);
+Route::post('/admins', [AdminsController::class, 'store']);
+Route::put('/admins/{id}', [AdminsController::class, 'update']);
+
+//Category Routes
+Route::get('/categories', [CategoriesController::class, 'index']);
+Route::post('/categories', [CategoriesController::class, 'store']);
+Route::put('/categories/{id}', [CategoriesController::class, 'update']);
 

@@ -29,6 +29,11 @@ return new class extends Migration
             ->nullable()
             ->constrained('presentations')
             ->cascadeOnUpdate();
+
+            $table->foreignId('category_id')
+            ->nullable()
+            ->constrained('categories')
+            ->cascadeOnUpdate();
             
             $table->timestamps();
         });
