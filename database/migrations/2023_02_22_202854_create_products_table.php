@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double('price');
             $table->date('admission_date');
             $table->date('expiration_date');
+            $table->string('img_url');
 
             $table->foreignId('brand_id')
             ->nullable()

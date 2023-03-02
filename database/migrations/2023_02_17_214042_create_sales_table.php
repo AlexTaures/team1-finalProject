@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->string('products');
+            $table->text('products');
             $table->date('sale_date');
             $table->double('total_sale');
             $table->foreignId('customer_id')
