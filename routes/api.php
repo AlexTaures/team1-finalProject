@@ -51,6 +51,7 @@ Route::put('/presentations/{id}', [PresentationController::class, 'update']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
+Route::put('/products/amount/{id}', [ProductController::class, 'updateAmount']);
 
 //Admin Routes
 Route::get('/admins', [AdminsController::class, 'index']);

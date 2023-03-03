@@ -104,14 +104,21 @@ class productController extends Controller
         return $product;
     }
 
-    /**
-     * Remove the specified resource from storage.
+     /**
+     * Update the specified amount in Sales Table.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  string  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function updateAmount(Request $request, $id)
     {
-        //
+        $product = Products::findOrFail($id);
+
+        $product->amount -= $request->input('amount');
+        
+        $product->save();
+
+        return $product;
     }
 }
